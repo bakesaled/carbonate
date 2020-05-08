@@ -2,6 +2,7 @@ import {
   OfxInvestmentBuyMfTransaction,
   OfxInvestmentBuyOtherTransaction,
   OfxInvestmentIncomeTransaction,
+  OfxInvestmentReinvestTransaction,
   OfxInvestmentTransactionList
 } from './ofx-body';
 import { TransactionModel } from '../transaction.model';
@@ -61,6 +62,22 @@ export class OfxInvestmentTransactionAdapter {
     };
   }
 
+  public static convertReinvestToInvestmentTransaction(
+    trans: OfxInvestmentReinvestTransaction
+  ): TransactionModel {
+    return {
+      transactionType: 'REINVEST',
+      amount: parseFloat(trans.TOTAL),
+      fitId: trans.INVTRAN.FITID,
+      name: undefined,
+      memo: trans.INVTRAN.MEMO,
+      dateTrade: OfxDateUtil.OfxDateToDate(trans.INVTRAN.DTTRADE),
+      dateSettle: OfxDateUtil.OfxDateToDate(trans.INVTRAN.DTSETTLE),
+      correctFitId: trans.INVTRAN.REVERSALFITID,
+      secId: trans.SECID.UNIQUEID
+    };
+  }
+
   public static convertTransactionList(
     transList: OfxInvestmentTransactionList
   ): TransactionModel[] {
@@ -100,6 +117,16 @@ export class OfxInvestmentTransactionAdapter {
         transactions.push(
           OfxInvestmentTransactionAdapter.convertIncomeToInvestmentTransaction(
             transList.INCOME[i]
+          )
+        );
+      }
+    }
+
+    if (transList.REINVEST) {
+      for (let i = 0; i < transList.REINVEST.length; i++) {
+        transactions.push(
+          OfxInvestmentTransactionAdapter.convertReinvestToInvestmentTransaction(
+            transList.REINVEST[i]
           )
         );
       }

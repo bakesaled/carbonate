@@ -98,6 +98,7 @@ export interface OfxInvestmentTransactionList {
   BUYOTHER?: Array<OfxInvestmentBuyOtherTransaction>;
   BUYMF?: Array<OfxInvestmentBuyMfTransaction>;
   INCOME?: Array<OfxInvestmentIncomeTransaction>;
+  REINVEST?: Array<OfxInvestmentReinvestTransaction>;
 }
 
 export interface OfxInvestmentBuyOtherTransaction {
@@ -108,7 +109,7 @@ export interface OfxInvestmentBuyOtherTransaction {
     UNITPRICE: string;
     TOTAL: string;
     SUBACCTSEC: string;
-    AUBACCTFUND: string;
+    SUBACCTFUND: string;
   };
 }
 
@@ -120,7 +121,7 @@ export interface OfxInvestmentBuyMfTransaction {
     UNITPRICE: string;
     TOTAL: string;
     SUBACCTSEC: string;
-    AUBACCTFUND: string;
+    SUBACCTFUND: string;
   };
 }
 
@@ -133,6 +134,16 @@ export interface OfxInvestmentIncomeTransaction {
   INVTRAN: OfxInvestmentTransaction;
   SECID: OfxInvestmentSecId;
   INCOMETYPE: string;
+  TOTAL: string;
+  SUBACCTSEC: string;
+  SUBACCTFUND: string;
+}
+
+export interface OfxInvestmentReinvestTransaction {
+  INVTRAN: OfxInvestmentTransaction;
+  SECID: OfxInvestmentSecId;
+  UNITS: string;
+  UNITPRICE: string;
   TOTAL: string;
   SUBACCTSEC: string;
   SUBACCTFUND: string;
