@@ -41,18 +41,18 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@types/jest": "25.1.1",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@types/jest": "^25.2.3",
     "@types/node": "^13.1.6",
     "@types/prompts": "^2.0.3",
-    "jest": "^25.0.0",
-    "prettier": "^1.18.2",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.0",
-    "rollup": "^1.31.1",
-    "rollup-plugin-typescript2": "^0.26.0",
-    "ts-jest": "25.1.0",
-    "ts-loader": "^6.2.1",
+    "rollup": "^2.10.7",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "ts-jest": "26.0.0",
+    "ts-loader": "^7.0.4",
     "ts-node": "^8.6.0",
     "tsc-watch": "^4.1.0",
     "tsconfig-paths": "^3.9.0",
@@ -62,9 +62,9 @@
   },
   "peerDependencies": {
     "date-fns": "^2.9.0",
-    "xml2js": "^0.4.23",
     "stream": "~0.0.2",
-    "timers": "^0.1.1"
+    "timers": "^0.1.1",
+    "xml2js": "^0.4.23"
   },
   "jest": {
     "moduleFileExtensions": [
