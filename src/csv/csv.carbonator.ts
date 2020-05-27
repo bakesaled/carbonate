@@ -84,6 +84,9 @@ export class CsvCarbonator {
   }
 
   private parseMoney(stringVal: string) {
+    if (!stringVal) {
+      return 0;
+    }
     stringVal = stringVal.replace(/[^0-9.-]+/g, '');
     return Number(stringVal);
   }
