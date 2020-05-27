@@ -26,7 +26,7 @@ export interface CsvMappings {
 }
 export class CsvOptions {
   sort?: 'asc' | 'desc';
-  mappings: CsvMappings;
+  mappings?: CsvMappings;
 
   constructor(options: CsvOptions = defaultCsvOptions) {
     this.sort = options.sort || defaultCsvOptions.sort;
